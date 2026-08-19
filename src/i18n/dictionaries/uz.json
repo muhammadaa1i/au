@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "dashboard": "Boshqaruv paneli",
+    "scenarios": "Ssenariylar",
+    "history": "Tarix",
+    "admin": "Admin",
+    "signIn": "Kirish",
+    "signUp": "Ro'yxatdan o'tish",
+    "signOut": "Chiqish"
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "save": "Saqlash",
+    "saving": "Saqlanmoqda...",
+    "cancel": "Bekor qilish",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "create": "Yaratish",
+    "back": "Orqaga",
+    "error": "Xatolik yuz berdi",
+    "retry": "Qayta urinish"
+  },
+  "marketing": {
+    "title": "Nihongo Talk Trainer",
+    "subtitle": "Yapon tilida erkin gapirishni ovozli suhbat orqali mashq qiling",
+    "cta": "Mashqni boshlash",
+    "featureConversation": "Haqiqiy hayotdagi ssenariylar bo'yicha yaponcha suhbat",
+    "featureVoice": "Ovoz orqali gapirish va tinglash",
+    "featureFeedback": "Grammatika va tabiiylik bo'yicha darhol baho"
+  },
+  "auth": {
+    "welcomeBack": "Xush kelibsiz",
+    "createAccount": "Hisob yaratish"
+  },
+  "onboarding": {
+    "title": "Profilingizni sozlang",
+    "description": "Yapon tili darajangiz va interfeys tilini tanlang",
+    "displayName": "Ismingiz",
+    "jlptLevel": "JLPT darajasi",
+    "uiLanguage": "Interfeys tili",
+    "submit": "Boshlash"
+  },
+  "dashboard": {
+    "title": "Boshqaruv paneli",
+    "welcome": "Xush kelibsiz, {name}",
+    "yourLevel": "Sizning darajangiz",
+    "browseScenarios": "Ssenariylarni ko'rish",
+    "recentSessions": "So'nggi mashg'ulotlar",
+    "noSessions": "Hali mashg'ulotlar yo'q. Birinchi suhbatni boshlang!"
+  },
+  "scenarios": {
+    "title": "Suhbat ssenariylari",
+    "filterByLevel": "Daraja bo'yicha filtrlash",
+    "allLevels": "Barcha darajalar",
+    "startPractice": "Mashqni boshlash",
+    "empty": "Ushbu darajada ssenariylar topilmadi"
+  },
+  "practice": {
+    "micStart": "Gapirish uchun bosing",
+    "micListening": "Tinglanmoqda...",
+    "micProcessing": "Tahlil qilinmoqda...",
+    "micUnsupported": "Brauzeringiz ovozni tanib olishni qo'llab-quvvatlamaydi. Chrome yoki Edge'dan foydalaning.",
+    "typePlaceholder": "Yaponcha yozing...",
+    "send": "Yuborish",
+    "playAgain": "Qayta eshitish",
+    "endSession": "Suhbatni yakunlash",
+    "score": "Baho",
+    "grammarNotes": "Grammatika bo'yicha izohlar",
+    "naturalnessNotes": "Tabiiylik bo'yicha izohlar",
+    "suggestedCorrection": "Taklif etilgan tuzatish",
+    "sessionEndedTitle": "Suhbat yakunlandi",
+    "sessionSummary": "Ushbu mashg'ulotdagi o'rtacha balingiz: {score}",
+    "backToScenarios": "Ssenariylarga qaytish",
+    "viewHistory": "Tarixni ko'rish"
+  },
+  "history": {
+    "title": "O'quv tarixi",
+    "empty": "Hali yakunlangan mashg'ulotlar yo'q",
+    "averageScore": "O'rtacha ball",
+    "viewTranscript": "Suhbatni ko'rish",
+    "status": {
+      "active": "Davom etmoqda",
+      "completed": "Yakunlangan"
+    }
+  },
+  "admin": {
+    "scenariosTitle": "Ssenariylarni boshqarish",
+    "newScenario": "Yangi ssenariy",
+    "editScenario": "Ssenariyni tahrirlash",
+    "published": "Chop etilgan",
+    "draft": "Qoralama",
+    "publish": "Chop etish",
+    "unpublish": "Chop etishni bekor qilish",
+    "confirmDelete": "Ushbu ssenariyni o'chirmoqchimisiz?",
+    "form": {
+      "title": "Sarlavha",
+      "description": "Tavsif",
+      "category": "Kategoriya",
+      "jlptLevel": "JLPT darajasi",
+      "systemPrompt": "Sun'iy intellekt uchun ko'rsatma (rol va vaziyat tavsifi)",
+      "openingLine": "Boshlang'ich yaponcha jumla"
+    }
+  }
+}

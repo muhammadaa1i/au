@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "scenarios": "Scenarios",
+    "history": "History",
+    "admin": "Admin",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "error": "Something went wrong",
+    "retry": "Retry"
+  },
+  "marketing": {
+    "title": "Nihongo Talk Trainer",
+    "subtitle": "Practice speaking natural Japanese through voice conversation",
+    "cta": "Start practicing",
+    "featureConversation": "Real-life scenario-based Japanese conversation",
+    "featureVoice": "Speak and listen with your voice",
+    "featureFeedback": "Instant feedback on grammar and naturalness"
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "createAccount": "Create an account"
+  },
+  "onboarding": {
+    "title": "Set up your profile",
+    "description": "Choose your Japanese level and interface language",
+    "displayName": "Your name",
+    "jlptLevel": "JLPT level",
+    "uiLanguage": "Interface language",
+    "submit": "Get started"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back, {name}",
+    "yourLevel": "Your level",
+    "browseScenarios": "Browse scenarios",
+    "recentSessions": "Recent sessions",
+    "noSessions": "No sessions yet. Start your first conversation!"
+  },
+  "scenarios": {
+    "title": "Conversation scenarios",
+    "filterByLevel": "Filter by level",
+    "allLevels": "All levels",
+    "startPractice": "Start practicing",
+    "empty": "No scenarios found for this level"
+  },
+  "practice": {
+    "micStart": "Tap to speak",
+    "micListening": "Listening...",
+    "micProcessing": "Analyzing...",
+    "micUnsupported": "Your browser doesn't support speech recognition. Please use Chrome or Edge.",
+    "typePlaceholder": "Type in Japanese...",
+    "send": "Send",
+    "playAgain": "Play again",
+    "endSession": "End session",
+    "score": "Score",
+    "grammarNotes": "Grammar notes",
+    "naturalnessNotes": "Naturalness notes",
+    "suggestedCorrection": "Suggested correction",
+    "sessionEndedTitle": "Session ended",
+    "sessionSummary": "Your average score for this session: {score}",
+    "backToScenarios": "Back to scenarios",
+    "viewHistory": "View history"
+  },
+  "history": {
+    "title": "Learning history",
+    "empty": "No completed sessions yet",
+    "averageScore": "Average score",
+    "viewTranscript": "View transcript",
+    "status": {
+      "active": "In progress",
+      "completed": "Completed"
+    }
+  },
+  "admin": {
+    "scenariosTitle": "Manage scenarios",
+    "newScenario": "New scenario",
+    "editScenario": "Edit scenario",
+    "published": "Published",
+    "draft": "Draft",
+    "publish": "Publish",
+    "unpublish": "Unpublish",
+    "confirmDelete": "Delete this scenario?",
+    "form": {
+      "title": "Title",
+      "description": "Description",
+      "category": "Category",
+      "jlptLevel": "JLPT level",
+      "systemPrompt": "AI instructions (role and situation description)",
+      "openingLine": "Opening Japanese line"
+    }
+  }
+}

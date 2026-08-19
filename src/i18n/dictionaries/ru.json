@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "dashboard": "Панель управления",
+    "scenarios": "Сценарии",
+    "history": "История",
+    "admin": "Админ",
+    "signIn": "Войти",
+    "signUp": "Регистрация",
+    "signOut": "Выйти"
+  },
+  "common": {
+    "loading": "Загрузка...",
+    "save": "Сохранить",
+    "saving": "Сохранение...",
+    "cancel": "Отмена",
+    "delete": "Удалить",
+    "edit": "Редактировать",
+    "create": "Создать",
+    "back": "Назад",
+    "error": "Произошла ошибка",
+    "retry": "Повторить"
+  },
+  "marketing": {
+    "title": "Nihongo Talk Trainer",
+    "subtitle": "Практикуйте естественную японскую речь через голосовой диалог",
+    "cta": "Начать практику",
+    "featureConversation": "Диалоги на японском по реальным жизненным сценариям",
+    "featureVoice": "Говорите и слушайте голосом",
+    "featureFeedback": "Мгновенная оценка грамматики и естественности"
+  },
+  "auth": {
+    "welcomeBack": "С возвращением",
+    "createAccount": "Создать аккаунт"
+  },
+  "onboarding": {
+    "title": "Настройте профиль",
+    "description": "Выберите свой уровень японского и язык интерфейса",
+    "displayName": "Ваше имя",
+    "jlptLevel": "Уровень JLPT",
+    "uiLanguage": "Язык интерфейса",
+    "submit": "Начать"
+  },
+  "dashboard": {
+    "title": "Панель управления",
+    "welcome": "С возвращением, {name}",
+    "yourLevel": "Ваш уровень",
+    "browseScenarios": "Смотреть сценарии",
+    "recentSessions": "Недавние занятия",
+    "noSessions": "Пока нет занятий. Начните первый диалог!"
+  },
+  "scenarios": {
+    "title": "Сценарии диалогов",
+    "filterByLevel": "Фильтр по уровню",
+    "allLevels": "Все уровни",
+    "startPractice": "Начать практику",
+    "empty": "Сценарии для этого уровня не найдены"
+  },
+  "practice": {
+    "micStart": "Нажмите, чтобы говорить",
+    "micListening": "Слушаю...",
+    "micProcessing": "Анализ...",
+    "micUnsupported": "Ваш браузер не поддерживает распознавание речи. Используйте Chrome или Edge.",
+    "typePlaceholder": "Печатайте на японском...",
+    "send": "Отправить",
+    "playAgain": "Прослушать снова",
+    "endSession": "Завершить занятие",
+    "score": "Балл",
+    "grammarNotes": "Заметки по грамматике",
+    "naturalnessNotes": "Заметки по естественности",
+    "suggestedCorrection": "Предлагаемое исправление",
+    "sessionEndedTitle": "Занятие завершено",
+    "sessionSummary": "Ваш средний балл за это занятие: {score}",
+    "backToScenarios": "Назад к сценариям",
+    "viewHistory": "Смотреть историю"
+  },
+  "history": {
+    "title": "История обучения",
+    "empty": "Пока нет завершённых занятий",
+    "averageScore": "Средний балл",
+    "viewTranscript": "Посмотреть диалог",
+    "status": {
+      "active": "В процессе",
+      "completed": "Завершено"
+    }
+  },
+  "admin": {
+    "scenariosTitle": "Управление сценариями",
+    "newScenario": "Новый сценарий",
+    "editScenario": "Редактировать сценарий",
+    "published": "Опубликован",
+    "draft": "Черновик",
+    "publish": "Опубликовать",
+    "unpublish": "Снять с публикации",
+    "confirmDelete": "Удалить этот сценарий?",
+    "form": {
+      "title": "Заголовок",
+      "description": "Описание",
+      "category": "Категория",
+      "jlptLevel": "Уровень JLPT",
+      "systemPrompt": "Инструкции для ИИ (роль и описание ситуации)",
+      "openingLine": "Начальная фраза на японском"
+    }
+  }
+}

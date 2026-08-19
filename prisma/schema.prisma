@@ -1,0 +1,106 @@
+// Nihongo Talk Trainer — persistence schema.
+// See docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UiLanguage {
+  uz
+  en
+  ru
+}
+
+enum JlptLevel {
+  N5
+  N4
+  N3
+  N2
+  N1
+}
+
+enum LearnerRole {
+  learner
+  admin
+}
+
+enum SessionStatus {
+  active
+  completed
+}
+
+enum MessageRole {
+  learner
+  tutor
+}
+
+model LearnerProfile {
+  id          String      @id @default(cuid())
+  clerkUserId String      @unique
+  displayName String
+  uiLanguage  UiLanguage  @default(uz)
+  jlptLevel   JlptLevel   @default(N5)
+  role        LearnerRole @default(learner)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  sessions         ConversationSession[]
+  createdScenarios Scenario[]             @relation("ScenarioCreatedBy")
+
+  @@map("learner_profiles")
+}
+
+model Scenario {
+  id           String    @id @default(cuid())
+  title        String
+  description  String
+  category     String
+  jlptLevel    JlptLevel
+  systemPrompt String
+  openingLine  String
+  isPublished  Boolean   @default(false)
+  createdById  String
+  createdBy    LearnerProfile @relation("ScenarioCreatedBy", fields: [createdById], references: [id])
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  sessions ConversationSession[]
+
+  @@index([isPublished, jlptLevel])
+  @@map("scenarios")
+}
+
+model ConversationSession {
+  id         String        @id @default(cuid())
+  userId     String
+  user       LearnerProfile @relation(fields: [userId], references: [id])
+  scenarioId String
+  scenario   Scenario      @relation(fields: [scenarioId], references: [id])
+  status     SessionStatus @default(active)
+  startedAt  DateTime      @default(now())
+  endedAt    DateTime?
+
+  messages Message[]
+
+  @@index([userId, status])
+  @@map("conversation_sessions")
+}
+
+model Message {
+  id                    String              @id @default(cuid())
+  sessionId             String
+  session               ConversationSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role                  MessageRole
+  text                  String
+  recognitionConfidence Float?
+  feedback              Json?
+  createdAt             DateTime            @default(now())
+
+  @@index([sessionId])
+  @@map("messages")
+}
