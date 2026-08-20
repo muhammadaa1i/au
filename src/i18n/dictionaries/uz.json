@@ -1,7 +1,7 @@
 {
   "nav": {
     "dashboard": "Boshqaruv paneli",
-    "scenarios": "Ssenariylar",
+    "scenarios": "Darslar",
     "history": "Tarix",
     "admin": "Admin",
     "signIn": "Kirish",
@@ -24,7 +24,7 @@
     "title": "Nihongo Talk Trainer",
     "subtitle": "Yapon tilida erkin gapirishni ovozli suhbat orqali mashq qiling",
     "cta": "Mashqni boshlash",
-    "featureConversation": "Haqiqiy hayotdagi ssenariylar bo'yicha yaponcha suhbat",
+    "featureConversation": "Haqiqiy hayotdagi darslar bo'yicha yaponcha suhbat",
     "featureVoice": "Ovoz orqali gapirish va tinglash",
     "featureFeedback": "Grammatika va tabiiylik bo'yicha darhol baho"
   },
@@ -44,16 +44,16 @@
     "title": "Boshqaruv paneli",
     "welcome": "Xush kelibsiz, {name}",
     "yourLevel": "Sizning darajangiz",
-    "browseScenarios": "Ssenariylarni ko'rish",
+    "browseScenarios": "Darslarni ko'rish",
     "recentSessions": "So'nggi mashg'ulotlar",
     "noSessions": "Hali mashg'ulotlar yo'q. Birinchi suhbatni boshlang!"
   },
   "scenarios": {
-    "title": "Suhbat ssenariylari",
+    "title": "Suhbat darslari",
     "filterByLevel": "Daraja bo'yicha filtrlash",
     "allLevels": "Barcha darajalar",
     "startPractice": "Mashqni boshlash",
-    "empty": "Ushbu darajada ssenariylar topilmadi"
+    "empty": "Ushbu darajada darslar topilmadi"
   },
   "practice": {
     "micStart": "Gapirish uchun bosing",
@@ -70,7 +70,7 @@
     "suggestedCorrection": "Taklif etilgan tuzatish",
     "sessionEndedTitle": "Suhbat yakunlandi",
     "sessionSummary": "Ushbu mashg'ulotdagi o'rtacha balingiz: {score}",
-    "backToScenarios": "Ssenariylarga qaytish",
+    "backToScenarios": "Darslarga qaytish",
     "viewHistory": "Tarixni ko'rish"
   },
   "history": {
@@ -84,14 +84,14 @@
     }
   },
   "admin": {
-    "scenariosTitle": "Ssenariylarni boshqarish",
-    "newScenario": "Yangi ssenariy",
-    "editScenario": "Ssenariyni tahrirlash",
+    "scenariosTitle": "Darslarni boshqarish",
+    "newScenario": "Yangi dars",
+    "editScenario": "Darsni tahrirlash",
     "published": "Chop etilgan",
     "draft": "Qoralama",
     "publish": "Chop etish",
     "unpublish": "Chop etishni bekor qilish",
-    "confirmDelete": "Ushbu ssenariyni o'chirmoqchimisiz?",
+    "confirmDelete": "Ushbu darsni o'chirmoqchimisiz?",
     "form": {
       "title": "Sarlavha",
       "description": "Tavsif",

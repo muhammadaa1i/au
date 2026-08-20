@@ -7,6 +7,11 @@ import { requireLearnerProfile } from "@/lib/auth/current-profile";
 import { toMessageDTO } from "../../message-dto";
 import { PracticeChat } from "./practice-chat";
 
+// sendPracticeMessage (invoked from PracticeChat) makes two concurrent Gemini
+// calls that have been observed taking 20-27s on the free tier — well past
+// Vercel's default Server Action timeout (10s on Hobby).
+export const maxDuration = 60;
+
 export default async function PracticeSessionPage({
   params,
 }: {
