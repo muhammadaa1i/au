@@ -2,6 +2,7 @@ import { GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
+import { AppNav } from "@/components/layout/app-nav";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
@@ -34,13 +35,7 @@ export default async function AppLayout({
           <GraduationCap className="size-5" />
           {dictionary.marketing.title}
         </Link>
-        <nav className="hidden items-center gap-6 text-sm sm:flex">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-muted-foreground hover:text-foreground">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <AppNav links={navLinks} />
         <div className="flex items-center gap-3">
           <LocaleSwitcher currentLocale={locale} />
           <UserButton />

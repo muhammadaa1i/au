@@ -26,6 +26,7 @@ describe("GetLearningHistory", () => {
   it("returns sessions with their average score, newest first", async () => {
     const repo = new FakeSessionRepository();
     const userId = LearnerProfileId.of("learner-1");
+    repo.linkClerkUser("clerk_1", userId);
 
     const older = ConversationSession.start({ id: SessionId.of("s1"), userId, scenarioId: ScenarioId.of("sc1") });
     repo.linkScenario(older.id, buildScenario("sc1"));
@@ -49,15 +50,20 @@ describe("GetLearningHistory", () => {
     repo.linkScenario(newer.id, buildScenario("sc2"));
     await repo.save(newer);
 
-    const history = await new GetLearningHistory(repo).execute("learner-1");
+    const history = await new GetLearningHistory(repo).execute("clerk_1");
 
     expect(history.map((entry) => entry.session.id.toString())).toEqual(["s2", "s1"]);
     expect(history[1].averageScore.valueOf()).toBe(60);
     expect(history[0].averageScore.valueOf()).toBe(0);
+    expect(history[1].scenarioTitle).toBe("Scenario sc1");
+    expect(history[1].scenarioId.toString()).toBe("sc1");
   });
 
   it("only returns sessions belonging to the requested user", async () => {
     const repo = new FakeSessionRepository();
+    repo.linkClerkUser("clerk_1", LearnerProfileId.of("learner-1"));
+    repo.linkClerkUser("clerk_2", LearnerProfileId.of("learner-2"));
+
     const mine = ConversationSession.start({
       id: SessionId.of("mine"),
       userId: LearnerProfileId.of("learner-1"),
@@ -73,8 +79,14 @@ describe("GetLearningHistory", () => {
     await repo.save(mine);
     await repo.save(theirs);
 
-    const history = await new GetLearningHistory(repo).execute("learner-1");
+    const history = await new GetLearningHistory(repo).execute("clerk_1");
 
     expect(history.map((entry) => entry.session.id.toString())).toEqual(["mine"]);
+  });
+
+  it("returns an empty list for a clerk user with no linked profile yet", async () => {
+    const repo = new FakeSessionRepository();
+    const history = await new GetLearningHistory(repo).execute("clerk_unknown");
+    expect(history).toEqual([]);
   });
 });

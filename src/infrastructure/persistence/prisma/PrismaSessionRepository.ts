@@ -10,9 +10,10 @@ import { prisma } from "@/infrastructure/persistence/prisma/client";
 import { ConversationSession } from "@/domain/entities/ConversationSession";
 import { Message } from "@/domain/entities/Message";
 import { Scenario } from "@/domain/entities/Scenario";
-import { SessionRepository, SessionWithContext } from "@/domain/ports/SessionRepository";
+import { SessionRepository, SessionSummary, SessionWithContext } from "@/domain/ports/SessionRepository";
 import { LanguageFeedback, LanguageFeedbackJSON } from "@/domain/value-objects/LanguageFeedback";
 import { JlptLevel } from "@/domain/value-objects/JlptLevel";
+import { Score } from "@/domain/value-objects/Score";
 import { LearnerProfileId, MessageId, ScenarioId, SessionId } from "@/domain/value-objects/ids";
 
 function scenarioToDomain(row: ScenarioRow): Scenario {
@@ -102,17 +103,31 @@ export class PrismaSessionRepository implements SessionRepository {
     };
   }
 
-  async findByUser(userId: LearnerProfileId): Promise<SessionWithContext[]> {
+  async findSummariesByUser(clerkUserId: string): Promise<SessionSummary[]> {
     const rows = await prisma.conversationSession.findMany({
-      where: { userId: userId.toString() },
-      include: sessionWithContextInclude,
+      where: { user: { clerkUserId } },
+      include: {
+        scenario: { select: { id: true, title: true } },
+        messages: { select: { feedback: true } },
+        _count: { select: { messages: true } },
+      },
       orderBy: { startedAt: "desc" },
     });
-    return rows.map((row) => ({
-      session: sessionToDomain(row),
-      scenario: scenarioToDomain(row.scenario),
-      messages: row.messages.map(messageToDomain),
-    }));
+
+    return rows.map((row) => {
+      const scores = row.messages
+        .filter((message) => message.feedback !== null)
+        .map((message) =>
+          LanguageFeedback.fromJSON(message.feedback as unknown as LanguageFeedbackJSON).overallScore,
+        );
+      return {
+        session: sessionToDomain(row),
+        scenarioId: ScenarioId.of(row.scenario.id),
+        scenarioTitle: row.scenario.title,
+        averageScore: Score.average(scores),
+        messageCount: row._count.messages,
+      };
+    });
   }
 
   async addMessage(message: Message): Promise<void> {

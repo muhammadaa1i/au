@@ -7,15 +7,20 @@ import { container } from "@/di/container";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { interpolate } from "@/i18n/interpolate";
-import { requireLearnerProfile } from "@/lib/auth/current-profile";
+import { requireClerkUserId, requireLearnerProfile } from "@/lib/auth/current-profile";
 
 export default async function DashboardPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
   const dictionary = await getDictionary(locale);
-  const profile = await requireLearnerProfile();
-  const history = await container.getLearningHistory.execute(profile.id.toString());
+  // Both need "who's logged in" but neither needs the other's result, so run
+  // them concurrently instead of resolving the profile first just to read
+  // its internal id for the history query.
+  const [profile, history] = await Promise.all([
+    requireLearnerProfile(),
+    requireClerkUserId().then((clerkUserId) => container.getLearningHistory.execute(clerkUserId)),
+  ]);
   const recentSessions = history.slice(0, 5);
 
   return (
@@ -47,10 +52,10 @@ export default async function DashboardPage({ params }: { params: Promise<{ loca
                 <li key={entry.session.id.toString()} className="flex items-center justify-between text-sm">
                   <div className="flex flex-col">
                     <Link
-                      href={`/${locale}/practice/${entry.scenario.id.toString()}/${entry.session.id.toString()}`}
+                      href={`/${locale}/practice/${entry.scenarioId.toString()}/${entry.session.id.toString()}`}
                       className="font-medium hover:underline"
                     >
-                      {entry.scenario.title}
+                      {entry.scenarioTitle}
                     </Link>
                     <span className="text-muted-foreground">
                       {entry.session.startedAt.toLocaleDateString(locale)}

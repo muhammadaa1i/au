@@ -5,15 +5,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { container } from "@/di/container";
 import { isLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { requireLearnerProfile } from "@/lib/auth/current-profile";
+import { requireClerkUserId } from "@/lib/auth/current-profile";
 
 export default async function HistoryPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 
   const dictionary = await getDictionary(locale);
-  const profile = await requireLearnerProfile();
-  const history = await container.getLearningHistory.execute(profile.id.toString());
+  const clerkUserId = await requireClerkUserId();
+  const history = await container.getLearningHistory.execute(clerkUserId);
 
   return (
     <div className="mx-auto flex max-w-3xl flex-col gap-4">
@@ -28,10 +28,10 @@ export default async function HistoryPage({ params }: { params: Promise<{ locale
               <CardContent className="flex items-center justify-between gap-4 py-4">
                 <div className="flex flex-col gap-1">
                   <Link
-                    href={`/${locale}/practice/${entry.scenario.id.toString()}/${entry.session.id.toString()}`}
+                    href={`/${locale}/practice/${entry.scenarioId.toString()}/${entry.session.id.toString()}`}
                     className="font-medium hover:underline"
                   >
-                    {entry.scenario.title}
+                    {entry.scenarioTitle}
                   </Link>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <span>{entry.session.startedAt.toLocaleDateString(locale)}</span>

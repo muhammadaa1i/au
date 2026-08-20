@@ -42,3 +42,19 @@ export async function requireAdminProfile(): Promise<LearnerProfile> {
   }
   return profile;
 }
+
+/**
+ * Just the Clerk user ID — no database round trip (Clerk's session is
+ * already verified per-request by proxy.ts). Use this instead of
+ * `requireLearnerProfile()` when a page needs to scope a query to "the
+ * current user" but doesn't need the LearnerProfile row itself (e.g.
+ * `history`), or wants to fetch the profile and other user-scoped data in
+ * parallel instead of the profile blocking everything else.
+ */
+export const requireClerkUserId = cache(async (): Promise<string> => {
+  const { userId } = await auth();
+  if (!userId) {
+    redirect("/");
+  }
+  return userId;
+});
